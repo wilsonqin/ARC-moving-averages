@@ -4,7 +4,10 @@ from Queue import Queue
 #M, the number of days we care about
 ma_days = 10
 
-#initialize the first 5 days of data
+#simulation length in days
+sim_len = 50
+
+#initialize the first ma_days of data
 def populate_mem(memory, s):
   m_sum = 0
   while not memory.full():
@@ -34,7 +37,7 @@ def main():
   #populate the moving avg array with the first one
   ma_arr.append(s.get_ma())
 
-  for x in range(1,75,1):
+  for x in range(1,sim_len,1):
     populate_ma(ma_arr, memory, s)
   map(print_ma, ma_arr)
 

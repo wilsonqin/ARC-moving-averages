@@ -3,8 +3,12 @@ from random import randint, seed
 class Stock:
   def __init__(self):
     self.price = 50
-    self.current_ma = None
+    # MA X_0 condition.
+    # by default current moving average = current price
+    self.current_ma = 50
     seed()
+  def get_price(self):
+    return self.price
   def next_price(self):
     new_price = randint(self.price-1, self.price+1)
     self.price = new_price
